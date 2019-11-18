@@ -22,3 +22,19 @@ const precios = [
 ];
 
 const sucursales = ['Centro', 'Caballito'];
+
+const precioMaquina = (componentes) => {
+  let precioTotal = 0;
+  for (const componente of componentes) {
+    let precioComponente = precios.find((precio) => {
+      return componente == precio[0];
+    });
+
+    precioTotal = precioTotal + precioComponente[1];
+  };
+  return precioTotal;
+};
+
+module.exports = {
+  precioMaquina
+};
