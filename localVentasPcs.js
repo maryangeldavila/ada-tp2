@@ -23,12 +23,24 @@ const precios = [
 
 const sucursales = ['Centro', 'Caballito'];
 
-/*obtenerIdVenta(): Tiene que retornar un número aleatorio entre 100000000 y 999999999*/
+const precioMaquina = (componentes) => {
+  let precioTotal = 0;
+  for (const componente of componentes) {
+    let precioComponente = precios.find((precio) => {
+      return componente == precio[0];
+    });
+    precioTotal = precioTotal + precioComponente[1];
+  };
+  return precioTotal;
+};
+
 const obtenerIdVenta =()=>{
   return Math.random() * (999999999 - 100000000) + 100000000;
 }
 
 module.exports = {
+  precioMaquina,
   obtenerIdVenta,
 };
+
 
