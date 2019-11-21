@@ -34,13 +34,21 @@ const precioMaquina = (componentes) => {
   return precioTotal;
 };
 
-const obtenerIdVenta =()=>{
+const obtenerIdVenta = () => {
   return Math.random() * (999999999 - 100000000) + 100000000;
+};
+
+const agregarVenta = (dia, mes, anio, vendedora, sucursal, componentes) => {
+  let nuevaVenta = [
+    obtenerIdVenta(), dia, mes, anio, vendedora, sucursal, componentes];
+  ventas.push(nuevaVenta);
 }
 
 module.exports = {
   precioMaquina,
   obtenerIdVenta,
+  agregarVenta,
+  ventas,
 };
 
 
