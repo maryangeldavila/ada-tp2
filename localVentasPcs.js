@@ -22,3 +22,33 @@ const precios = [
 ];
 
 const sucursales = ['Centro', 'Caballito'];
+
+const precioMaquina = (componentes) => {
+  let precioTotal = 0;
+  for (const componente of componentes) {
+    let precioComponente = precios.find((precio) => {
+      return componente == precio[0];
+    });
+    precioTotal = precioTotal + precioComponente[1];
+  };
+  return precioTotal;
+};
+
+const obtenerIdVenta = () => {
+  return Math.random() * (999999999 - 100000000) + 100000000;
+};
+
+const agregarVenta = (dia, mes, anio, vendedora, sucursal, componentes) => {
+  let nuevaVenta = [
+    obtenerIdVenta(), dia, mes, anio, vendedora, sucursal, componentes];
+  ventas.push(nuevaVenta);
+}
+
+module.exports = {
+  precioMaquina,
+  obtenerIdVenta,
+  agregarVenta,
+  ventas,
+};
+
+
