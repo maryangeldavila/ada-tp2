@@ -1,0 +1,1 @@
+const componenteMasVendido = require('./ada-tp2');
