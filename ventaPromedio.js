@@ -19,36 +19,25 @@ const ventas = [
     [ 'RAM Quinston Fury', 230 ]
    ];
    
-  
-   
-   
-  const cantidadVentasComponentes=(componente)=> {
-      let cantidadVentas = 0;
-          for (let i = 0; i < ventas.length; i++) {
-              console.log(ventas[i]);
-            for (let j = 0; j < ventas[i][6].length; j++ ) {
-              if (componente === ventas[i][6][j]) {
-                cantidadVentas++;
-              }
-            }
-          }
-          return cantidadVentas;
-        }
-  
-        const componenteMasVendido = () => {
-    let cantidad = 0;
-    let masVendido= "";
-    for(let precio of precios){
-      const componenteVendido= cantidadVentasComponentes(precio[0]);
-        if(componenteVendido>cantidad){
-          cantidad = masVendido;
-          masVendido = precio[0] 
-        }
-      }
-    return masVendido
-  }
-      
-  module.exports={
-    cantidadVentasComponentes,
-    componenteMasVendido,
-      }
+
+const ventaPromedio=()=>{
+    let promedioVenta = 0;
+    let cantidadVentas = 0;
+    for (let venta of ventas) {
+        cantidadVentas++;
+            precios.forEach(precio => {
+            venta[6].forEach(itVendido => {
+                if (itVendido === precio[0]) {
+                promedioVenta += precio[1];
+               }
+            })
+          });
+    }
+    let promedio = promedioVenta / cantidadVentas
+    
+    return   Math.floor(promedio);
+}
+
+module.exports={
+    ventaPromedio
+}
