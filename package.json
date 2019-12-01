@@ -1,7 +1,7 @@
 {
   "name": "ada-tp2",
   "version": "1.0.0",
-  "description": "TRABAJO PRÁCTICO JAVASCRIPT I",
+  "description": "Trabajo practico local ventas pcs",
   "main": "localVentasPcs.js",
   "scripts": {
     "test": "jest"
