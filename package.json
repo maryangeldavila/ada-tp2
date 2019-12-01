@@ -1,14 +1,19 @@
 {
-    "name": "local-ventas",
-    "version": "1.0.0",
-    "description": "",
-    "main": "localVentasPcs.js",
-    "scripts": {
-      "test": "jest"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-      "jest": "^24.9.0"
-    }
-  }
+  "name": "ada-tp2",
+  "version": "1.0.0",
+  "description": "Trabajo practico local ventas pcs",
+  "main": "localVentasPcs.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maryangeldavila/ada-tp2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maryangeldavila/ada-tp2/issues"
+  },
+  "homepage": "https://github.com/maryangeldavila/ada-tp2#readme"
+}
