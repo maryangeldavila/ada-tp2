@@ -99,6 +99,19 @@ const ventasSucursal = nombre => {
   return ventasSucursalTotal;
 };
 
+const mejorVendedora = () => {
+  let comparador = 0;
+  let vendedoraFinal;
+  for (let vendedora of vendedoras) {
+    let ventasVendedoraTotal = ventasVendedora(vendedora);
+    if (comparador < ventasVendedoraTotal) {
+      comparador = ventasVendedoraTotal;
+      vendedoraFinal = vendedora;
+    }
+  }
+  return vendedoraFinal;
+};
+
 const precioMaquina = (componentes) => {
   let precioTotal = 0;
   for (const componente of componentes) {
@@ -123,6 +136,7 @@ const agregarVenta = (dia, mes, anio, vendedora, sucursal, componentes) => {
 module.exports = {
   ventasVendedora,
   ventasSucursal,
+  mejorVendedora,
   precioMaquina,
   obtenerIdVenta,
   agregarVenta,
