@@ -41,7 +41,7 @@ test("Devuelve el nombre de la vendedora que mas ingresos genera", () => {
 });
 
 test("Devuelve el promedio de las ventas realizadas", () => {
-  expect(ventaPromedio()).toBe(348);
+  expect(ventaPromedio()).toBe(353);
 });
 
 test("comprobar que la funcion genere un id random", () => {
