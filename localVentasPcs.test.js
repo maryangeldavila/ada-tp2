@@ -10,12 +10,18 @@ const ventaPromedio = require("./localVentasPcs").ventaPromedio;
 const ventasSucursal = require("./localVentasPcs").ventasSucursal;
 const ventasVendedora = require("./localVentasPcs").ventasVendedora;
 
+beforeEach(() => {
+  if (ventas.length == 7) {
+    ventas.splice(6, 1);
+  }
+});
+
 test("Se suman precios de los componentes", () => {
-  let precioMaquinaRes = precioMaquina([
+  let precioMaquinaResultado = precioMaquina([
     "Monitor GPRS 3000",
     "Motherboard ASUS 1500"
   ]);
-  expect(precioMaquinaRes).toBe(320);
+  expect(precioMaquinaResultado).toBe(320);
 });
 
 test("Devuelve la cantidad de ventas por cada  componente", () => {
