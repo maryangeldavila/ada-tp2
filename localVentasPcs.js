@@ -150,9 +150,7 @@ const mejorVendedora = () => {
 
 const ventaPromedio = () => {
   let promedioVenta = 0;
-  let cantidadVentas = 0;
   for (let venta of ventas) {
-    cantidadVentas++;
     precios.forEach(precio => {
       venta[6].forEach(itVendido => {
         if (itVendido === precio[0]) {
@@ -161,7 +159,7 @@ const ventaPromedio = () => {
       });
     });
   }
-  let promedio = promedioVenta / cantidadVentas;
+  let promedio = promedioVenta / ventas.length;
 
   return Math.floor(promedio);
 };
