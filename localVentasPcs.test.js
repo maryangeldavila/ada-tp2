@@ -25,7 +25,7 @@ test("Se suman precios de los componentes", () => {
 });
 
 test("Devuelve la cantidad de ventas por cada  componente", () => {
-  expect(cantidadVentasComponente("Monitor GPRS 3000")).toBe(4);
+  expect(cantidadVentasComponente("Monitor GPRS 3000")).toBe(3);
 });
 
 test("Recibe vendedora y retorna importe total de ventas", () => {
@@ -39,7 +39,7 @@ test("Devuelve el componente mas vendido", () => {
 
 test("Recibe sucursal y devuelve su total de ventas", () => {
   let ventasDe = ventasSucursal("Centro");
-  expect(ventasDe).toBe(960);
+  expect(ventasDe).toBe(990);
 });
 
 test("Devuelve el nombre de la vendedora que mas ingresos genera", () => {

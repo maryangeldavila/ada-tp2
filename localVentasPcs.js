@@ -29,13 +29,13 @@ const ventas = [
     ["Monitor ASC 543", "Motherboard MZI", "HDD Toyiva"]
   ],
   [
-    100000001,
-    1,
+    100000003,
+    10,
     1,
     2019,
     "Ada",
     "Centro",
-    ["Monitor GPRS 3000", "Motherboard ASUS 1500"]
+    ["Monitor ASC 543", "Motherboard ASUS 1200"]
   ],
   [
     100000004,
