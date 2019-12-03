@@ -29,13 +29,13 @@ const ventas = [
     ["Monitor ASC 543", "Motherboard MZI", "HDD Toyiva"]
   ],
   [
-    100000001,
-    1,
+    100000003,
+    10,
     1,
     2019,
     "Ada",
     "Centro",
-    ["Monitor GPRS 3000", "Motherboard ASUS 1500"]
+    ["Monitor ASC 543", "Motherboard ASUS 1200"]
   ],
   [
     100000004,
@@ -71,6 +71,29 @@ const precios = [
 
 const sucursales = ["Centro", "Caballito"];
 
+const precioMaquina = componentes => {
+  let precioTotal = 0;
+  for (const componente of componentes) {
+    let precioComponente = precios.find(precio => {
+      return componente == precio[0];
+    });
+    precioTotal = precioTotal + precioComponente[1];
+  }
+  return precioTotal;
+};
+
+const cantidadVentasComponentes = componente => {
+  let cantidadVentas = 0;
+  for (let i = 0; i < ventas.length; i++) {
+    for (let j = 0; j < ventas[i][6].length; j++) {
+      if (componente === ventas[i][6][j]) {
+        cantidadVentas++;
+      }
+    }
+  }
+  return cantidadVentas;
+};
+
 const ventasVendedora = nombre => {
   let ventasVendedoraTotal = 0;
   for (let venta of ventas) {
@@ -83,6 +106,19 @@ const ventasVendedora = nombre => {
     ventasVendedoraTotal += precioMaquinaVendida;
   }
   return ventasVendedoraTotal;
+};
+
+const componenteMasVendido = () => {
+  let cantidad = 0;
+  let masVendido = "";
+  for (let precio of precios) {
+    const componenteVendido = cantidadVentasComponentes(precio[0]);
+    if (componenteVendido > cantidad) {
+      cantidad = masVendido;
+      masVendido = precio[0];
+    }
+  }
+  return masVendido;
 };
 
 const ventasSucursal = nombre => {
@@ -112,15 +148,20 @@ const mejorVendedora = () => {
   return vendedoraFinal;
 };
 
-const precioMaquina = (componentes) => {
-  let precioTotal = 0;
-  for (const componente of componentes) {
-    let precioComponente = precios.find((precio) => {
-      return componente == precio[0];
+const ventaPromedio = () => {
+  let promedioVenta = 0;
+  for (let venta of ventas) {
+    precios.forEach(precio => {
+      venta[6].forEach(itVendido => {
+        if (itVendido === precio[0]) {
+          promedioVenta += precio[1];
+        }
+      });
     });
-    precioTotal = precioTotal + precioComponente[1];
-  };
-  return precioTotal;
+  }
+  let promedio = promedioVenta / ventas.length;
+
+  return Math.floor(promedio);
 };
 
 const obtenerIdVenta = () => {
@@ -129,16 +170,25 @@ const obtenerIdVenta = () => {
 
 const agregarVenta = (dia, mes, anio, vendedora, sucursal, componentes) => {
   let nuevaVenta = [
-    obtenerIdVenta(), dia, mes, anio, vendedora, sucursal, componentes];
+    obtenerIdVenta(),
+    dia,
+    mes,
+    anio,
+    vendedora,
+    sucursal,
+    componentes
+  ];
   ventas.push(nuevaVenta);
-}
+};
 
 module.exports = {
-  ventasVendedora,
-  ventasSucursal,
-  mejorVendedora,
-  precioMaquina,
-  obtenerIdVenta,
   agregarVenta,
-  ventas
+  cantidadVentasComponentes,
+  componenteMasVendido,
+  mejorVendedora,
+  obtenerIdVenta,
+  precioMaquina,
+  ventaPromedio,
+  ventasSucursal,
+  ventasVendedora
 };
