@@ -1,3 +1,4 @@
+// No tengo correcciones. El trabajo está muy bien.
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
 const ventas = [
